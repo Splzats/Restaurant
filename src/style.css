@@ -1,0 +1,159 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  background-image: url("/src/assets/imgs/radiant-gradient.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  font-size: 10px;
+  z-index: -2;
+}
+
+#bgLogo {
+  min-height: 100%;
+  background-image: url("./assets/imgs/pokeball.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+}
+
+#content {
+  font-family: "Raleway", sans-serif;
+  color: #f2f5ff;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  z-index: 100;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3.5rem;
+}
+
+header h1 {
+  font-size: 5.4rem;
+  letter-spacing: 0.3rem;
+  color: #f2f5ff;
+  font-family: Helvetica, sans-serif;
+}
+
+header h1 span {
+  color: #af3a3a;
+}
+
+nav {
+  margin: 3rem 0;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+}
+
+nav ul li button {
+  padding: 1rem 3.5rem;
+  font-size: 2.4rem;
+  width: 230px;
+  border: none;
+  border-radius: 0;
+  background-color: #838e83;
+  color: #f2f5ff;
+  cursor: pointer;
+
+  transition: background-color 400ms ease-in, text-decoration 500ms ease-in;
+}
+
+nav ul li button:hover {
+  background-color: #af3a3a;
+  text-decoration: underline;
+}
+
+li:nth-child(1) button {
+  border-radius: 6px 0 0 6px;
+}
+
+li:nth-child(3) button {
+  border-radius: 0 6px 6px 0;
+}
+
+.sectionText {
+  padding: 0.75rem;
+  background-color: rgba(0, 0, 0, 0.185);
+  border-radius: 6px;
+  margin-bottom: 5rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+#aboutUsSection {
+  line-height: 2;
+  font-size: 1.6rem;
+  letter-spacing: 1.5px;
+}
+
+#menuSection {
+  display: none;
+}
+
+#reservationSection {
+  display: none;
+}
+
+.contentDisplayWindow {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.member {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0);
+  margin: 2rem 0;
+  padding: 2rem;
+}
+
+.photo {
+  height: 100px;
+  min-width: 100px;
+  background-color: #f2f5ff;
+  background-image: url("./assets/imgs/icons8-happy-100.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100px 100px;
+  margin: 0 2.5rem;
+  border-radius: 50%;
+}
+
+.bio {
+  background-color: rgba(0, 0, 0, 0);
+  margin-bottom: 2rem;
+}
+
+.name {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+  text-decoration: underline;
+}
+
+#left .name {
+  justify-content: flex-start;
+}
+
+#contactInfo {
+  margin-bottom: 2.5rem;
+}
