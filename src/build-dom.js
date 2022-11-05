@@ -43,17 +43,21 @@ const header = elemFactory(
       elemFactory(
         "li",
         { class: "navChoice" },
-        elemFactory("button", { class: "navBtn" }, "Home")
+        elemFactory("button", { class: "navBtn", id: "homeBtn" }, "Home")
       ),
       elemFactory(
         "li",
         { class: "navChoice" },
-        elemFactory("button", { class: "navBtn" }, "Menu")
+        elemFactory("button", { class: "navBtn", id: "menuBtn" }, "Menu")
       ),
       elemFactory(
         "li",
         { class: "navChoice" },
-        elemFactory("button", { class: "navBtn" }, "Reservations")
+        elemFactory(
+          "button",
+          { class: "navBtn", id: "reservationBtn" },
+          "Reservations"
+        )
       )
     )
   )
@@ -71,7 +75,7 @@ const displayWindowAbout = elemFactory(
   elemFactory(
     "p",
     { class: "sectionText" },
-    "Leftsovers is a one of a kind restaurant, creating a unique dining experience with local Kanto ingredients. We pride ourselves on being the only establishment in the region that specializes in the preparation and creation of pokemon based cuisine. From the most common of catches to the rarest of shinies, our artiste chefs have perfected the craft of preparing pokemon."
+    "Leftsovers is a one of a kind restaurant, creating a unique dining experience with local Kanto ingredients. We pride ourselves on being the only establishment in the region that specializes in the preparation and creation of pokemon based cuisine. From the most common of catches to the rarest of shinies, our artiste chefs have perfected the craft of preparing pokemon for your enjoyment."
   ),
   elemFactory(
     "div",
@@ -147,36 +151,85 @@ const displayWindowMenu = elemFactory(
   "div",
   {
     id: "menuSection",
-    class: "contentDisplayWindow",
+    class: "contentDisplayWindow sectionText",
   },
-  elemFactory("h2", { class: "sectionTitle" }, "Menu"),
   elemFactory(
     "ul",
     { class: "sectionText", class: "menuList" },
     elemFactory(
       "li",
-      { class: "sectionText", class: "menuListItem" },
-      "Menu Item #1"
+      { class: "sectionText menuItem", class: "menuListItem" },
+      elemFactory(
+        "div",
+        { class: "menuItemTextBox" },
+        elemFactory("h5", { class: "menuItemTitle" }, "Dragon Roll"),
+        elemFactory(
+          "p",
+          { class: "menuItemText" },
+          "A sushi roll made with lightly fried Gyarados, real Krabby meat, Leppas berries, and Razz berries. "
+        )
+      ),
+      elemFactory("div", { class: "menuIcon", id: "gyaradosIcon" })
     ),
     elemFactory(
       "li",
-      { class: "sectionText", class: "menuListItem" },
-      "Menu Item #2"
+      { class: "sectionText menuItem", class: "menuListItem" },
+      elemFactory(
+        "div",
+        { class: "menuItemTextBox" },
+        elemFactory("h5", { class: "menuItemTitle even" }, "Sawbuck Venison"),
+        elemFactory(
+          "p",
+          { class: "menuItemText" },
+          "A tender Sawbuck rib-eye seasoned with salt and pepper cooked over a high heat with a small amount of olive oil."
+        )
+      )
     ),
     elemFactory(
       "li",
-      { class: "sectionText", class: "menuListItem" },
-      "Menu Item #3"
+      { class: "sectionText menuItem", class: "menuListItem" },
+      elemFactory(
+        "div",
+        { class: "menuItemTextBox" },
+        elemFactory("h5", { class: "menuItemTitle" }, "Bellsprout Salad"),
+        elemFactory(
+          "p",
+          { class: "menuItemText" },
+          "A salad created with Bellsprout leafy greens, an assortment of berries, and dressed with Combee honey."
+        )
+      ),
+      elemFactory("div", { class: "menuIcon", id: "bellsproutIcon" })
     ),
     elemFactory(
       "li",
-      { class: "sectionText", class: "menuListItem" },
-      "Menu Item #4"
+      { class: "sectionText menuItem", class: "menuListItem" },
+
+      elemFactory(
+        "div",
+        { class: "menuItemTextBox" },
+        elemFactory("h5", { class: "menuItemTitle even" }, "Greninja Legs"),
+        elemFactory(
+          "p",
+          { class: "menuItemText" },
+          "Beer marinated Greninja legs seasoned with pepper, cooked in oil and butter. Fall of the bone tender."
+        )
+      )
     ),
     elemFactory(
       "li",
-      { class: "sectionText", class: "menuListItem" },
-      "Menu Item #5"
+      { class: "sectionText menuItem", class: "menuListItem" },
+
+      elemFactory(
+        "div",
+        { class: "menuItemTextBox" },
+        elemFactory("h5", { class: "menuItemTitle" }, "Tauros Burger"),
+        elemFactory(
+          "p",
+          { class: "menuItemText" },
+          "A juicy Tauros burger with Bellsprout leafy greens, Tamato berries, Mareep cheese, Tepig bacon, and slathered in spicy Rapidash sauce."
+        )
+      ),
+      elemFactory("div", { class: "menuIcon", id: "taurosIcon" })
     )
   )
 );
@@ -186,28 +239,28 @@ const displayWindowReservations = elemFactory(
   "div",
   {
     id: "reservationSection",
-    class: "contentDisplayWindow",
+    class: "contentDisplayWindow sectionText",
   },
-  elemFactory("h2", { class: "sectionTitle" }, "Reservations"),
   elemFactory(
     "form",
     { class: "resForm", method: "", action: "" },
-    //name input
-    elemFactory("input", {
-      type: "text",
-      name: "FullName",
-      placeholder: "Full Name",
-    }),
-    //guest picker
+    // date picker
     elemFactory(
-      "select",
-      { name: "guests", id: "guest-selection" },
-      elemFactory("option", { value: "one-guest" }, "1   Guest"),
-      elemFactory("option", { value: "two-guest" }, "Two Guest"),
-      elemFactory("option", { value: "two-guest" }, "2 Guests"),
-      elemFactory("option", { value: "three-guest" }, "3 Guests"),
-      elemFactory("option", { value: "four-guest" }, "4 Guests"),
-      elemFactory("option", { value: "five-plus-guest" }, "5+ Guests")
+      "div",
+      { class: "date-picker" },
+      elemFactory("div", { class: "selected-date" }),
+      elemFactory(
+        "div",
+        { class: "dates" },
+        elemFactory(
+          "div",
+          { class: "month" },
+          elemFactory("div", { class: "arrows prev-month" }, "<"),
+          elemFactory("div", { class: "monthSelected" }),
+          elemFactory("div", { class: "arrows next-month" }, ">")
+        ),
+        elemFactory("div", { class: "days" })
+      )
     ),
     //time picker
     elemFactory(
@@ -227,25 +280,44 @@ const displayWindowReservations = elemFactory(
       elemFactory("option", { value: "930" }, "9:30 pm"),
       elemFactory("option", { value: "1000" }, "10:00 pm")
     ),
-
-    // date picker
+    //guest picker
     elemFactory(
-      "div",
-      { class: "date-picker" },
-      elemFactory("div", { class: "selected-date" }),
-      "30 / 07 / 2019",
+      "select",
+      { name: "guests", id: "guest-selection" },
+      elemFactory("option", { value: "one-guest" }, "Table for one"),
+      elemFactory("option", { value: "two-guest" }, "Table for two"),
+      elemFactory("option", { value: "three-guest" }, "Table for three"),
+      elemFactory("option", { value: "four-guest" }, "Table for four"),
       elemFactory(
-        "div",
-        { class: "dates" },
-        elemFactory(
-          "div",
-          { class: "month" },
-          elemFactory("div", { class: "arrows prev-month" }, "<"),
-          elemFactory("div", { class: "month" }),
-          elemFactory("div", { class: "arrows next-month" }, ">")
-        ),
-        elemFactory("div", { class: "days" })
+        "option",
+        { value: "five-plus-guest" },
+        "Table for five or more"
       )
+    ),
+    //name input
+    elemFactory("input", {
+      type: "text",
+      name: "FullName",
+      id: "name-input",
+      placeholder: "Full Name",
+    }),
+    //email input
+    elemFactory("input", {
+      type: "email",
+      id: "resEmail",
+      placeholder: "Email",
+    }),
+    //telephone input
+    elemFactory("input", {
+      type: "tel",
+      id: "resTel",
+      placeholder: "Phone # 555-555-5555",
+      pattern: "[0-9]{3}-[0-9]{3}-[0-9]{4}",
+    }),
+    elemFactory(
+      "button",
+      { type: "button", id: "makeResBtn" },
+      "Make Reservation"
     )
   )
 );
